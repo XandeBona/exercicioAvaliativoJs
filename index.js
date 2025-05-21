@@ -35,6 +35,12 @@ function saveContact() {
     const contactPhone1Input = document.getElementById("primary_phone");
     const contactPhone2Input = document.getElementById("secondary_phone");
 
+    //Valida se os campos obrigatórios foram preenchidos
+    if (!contactNameInput.value || !contactPhone1Input.value) {
+        alert("Por favor, preencha todos os campos obrigatórios!");
+        return;
+    }
+
     //Cria um novo objeto com os valores de nome, telefone 1 e telefone 2
     const newContact = {
         contactName: contactNameInput.value,
