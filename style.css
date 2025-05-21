@@ -1,0 +1,66 @@
+:root {
+  --cor-principal: #2688f0; 
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ececec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.div_container {
+  background-color: rgb(252, 252, 252);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2c2c2c;
+}
+
+.div_formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.div_formulario label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #2c2c2c;
+}
+
+.div_formulario input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #cecece;
+  border-radius: 5px;
+}
+
+.div_formulario input:focus {
+  border-color: var(--cor-principal);
+  outline: none;
+}
+
+#contact_button {
+  padding: 12px;
+  background-color: var(--cor-principal);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#contact_button:hover {
+  background-color: #27507c;
+}
