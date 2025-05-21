@@ -1,5 +1,6 @@
 :root {
-  --cor-principal: #2688f0; 
+  --cor-principal: #2688f0;
+  --cor-secundaria: #cecece;
 }
 
 body {
@@ -63,4 +64,27 @@ h2 {
 
 #contact_button:hover {
   background-color: #27507c;
+}
+
+.div_table {
+  background-color: rgb(252, 252, 252);
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+  margin-left: 20px;
+
+}
+
+#contact_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#contact_table th,
+#contact_table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
 }
