@@ -59,7 +59,7 @@ h2 {
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: 0.3s;
 }
 
 #contact_button:hover {
@@ -74,12 +74,17 @@ h2 {
   width: 100%;
   max-width: 600px;
   margin-left: 20px;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 
 }
 
 #contact_table {
   border-collapse: collapse;
   width: 100%;
+  table-layout: fixed;
 }
 
 #contact_table th,
@@ -87,9 +92,26 @@ h2 {
   border: 1px solid black;
   padding: 8px;
   text-align: left;
+  text-align: center;
 }
 
 #contact_table th {
   color: var(--cor-titulo);
-  text-align: center;
 }
+
+#delete_button {
+  padding: 12px;
+  background-color: var(--cor-principal);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  margin-top: 15px;
+}
+
+#delete_button:hover {
+  background-color: #27507c;
+}
+

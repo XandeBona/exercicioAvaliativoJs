@@ -8,6 +8,11 @@ function addContactToTable(contactName, contactPhone1, contactPhone2) {
     const contactNameTable = document.createElement('td');
     const contactPhone1Table = document.createElement('td');
     const contactPhone2Table = document.createElement('td');
+    //Cria checkbox na tabela
+    const checkboxTable = document.createElement('td');
+    const checkboxTableInput = document.createElement('input');
+    checkboxTableInput.setAttribute('type', 'checkbox');
+    checkboxTableInput.setAttribute('class', 'checkbox_remove');
 
     //Preenche as colunas com os valores
     contactNameTable.innerText = contactName;
@@ -18,12 +23,14 @@ function addContactToTable(contactName, contactPhone1, contactPhone2) {
     newLine.appendChild(contactNameTable);
     newLine.appendChild(contactPhone1Table);
     newLine.appendChild(contactPhone2Table);
+    newLine.appendChild(checkboxTable);
 
     //Variável para adicionar os dados na tabela
     const contactList = document.getElementById("contact_table");
 
     //Utiliza a variável criada anteriormente para adicionar dados à nova linha da tabela
     contactList.appendChild(newLine);
+    checkboxTable.appendChild(checkboxTableInput);
 
 }
 
@@ -38,6 +45,22 @@ function saveContact() {
     //Valida se os campos obrigatórios foram preenchidos
     if (!contactNameInput.value || !contactPhone1Input.value) {
         alert("Por favor, preencha todos os campos obrigatórios!");
+        return;
+    }
+
+    // Regex para validar se o nome é valido
+    const nameRegex = /^[A-Za-zÀ-ÿ\s]{2,}$/;
+    if (!nameRegex.test(contactNameInput.value)) {
+        alert("O nome deve conter apenas letras e espaços");
+        return;
+    }
+
+    // Regex para validar se o telefone está no formato correto
+    const phoneRegex = /^\(\d{2}\) \d{4,5}-\d{4}$/;
+
+    // Validação dos telefones
+    if (!phoneRegex.test(contactPhone1Input.value) || (contactPhone2Input.value && !phoneRegex.test(contactPhone2Input.value))) {
+        alert("Favor informar o telefone no formato (XX) XXXXX-XXXX");
         return;
     }
 
@@ -70,10 +93,57 @@ function loadContacts() {
 
 }
 
+//Funcao para remover contatos
+function deleteContact() {
+    // Obtem todas as linhas da tabela
+    const table = document.getElementById("contact_table");
+    const lines = table.getElementsByTagName("tr");
+
+    // Nova lista para armazenar apenas os contatos que não foram marcados
+    const newContactList = [];
+
+    // Array temporário para armazenar as linhas que devem ser removidas
+    const linesToRemove = [];
+
+    // Percorre as linhas da tabela
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const checkbox = line.querySelector("input[type='checkbox']");
+
+        // Se checkbox estiver marcado, marca o contato para remover da lista
+        if (checkbox && checkbox.checked) {
+            linesToRemove.push(line);
+        } else {
+            // Se o checkbox não estiver marcado, o contato continuará na lista
+            const columns = line.getElementsByTagName("td");
+            if (columns.length >= 3) {
+                const contactName = columns[0].innerText;
+                const contactPhone1 = columns[1].innerText;
+                const contactPhone2 = columns[2].innerText;
+
+                newContactList.push({ contactName, contactPhone1, contactPhone2 });
+            }
+        }
+    }
+
+    // Remove as linhas da tabela
+    for (let line of linesToRemove) {
+        table.removeChild(line);
+    }
+
+    // Atualiza a lista principal e o localStorage (info salva no browser)
+    mainContactList = newContactList;
+    localStorage.setItem("contact_table", JSON.stringify(mainContactList));
+}
+
+
 function setupEventListeners() {
     loadContacts();
     const saveButton = document.getElementById("contact_button");
     saveButton.addEventListener("click", saveContact);
+    const deleteButton = document.getElementById("delete_button");
+    deleteButton.addEventListener("click", deleteContact)
+    console.log("botao delete funcionando")
 
 }
 
