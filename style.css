@@ -1,18 +1,28 @@
+/* Variáveis de cor */
 :root {
   --cor-principal: #2688f0;
   --cor-titulo: #27507c;
 }
 
+/* Estilização geral do body */
 body {
   font-family: Arial, sans-serif;
   background-color: #ececec;
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
   margin: 0;
+  align-items: flex-start;
 }
 
+/* Estilização do titulo */
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--cor-titulo);
+}
+
+/* Estilização do container que envolve o cadastro de contato */
 .div_container {
   background-color: rgb(252, 252, 252);
   padding: 30px 40px;
@@ -20,52 +30,34 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
+  margin-top: 40px;
 }
 
-h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  color: var(--cor-titulo);
-}
-
-.div_formulario {
+/* Estilização do formulário do cadastro de contato */ 
+.div_form {
   display: flex;
   flex-direction: column;
 }
 
-.div_formulario label {
+.div_form label {
   margin-bottom: 5px;
   font-weight: bold;
   color: #2c2c2c;
 }
 
-.div_formulario input {
+.div_form input {
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #cecece;
   border-radius: 5px;
 }
 
-.div_formulario input:focus {
+.div_form input:focus {
   border-color: var(--cor-principal);
   outline: none;
 }
 
-#contact_button {
-  padding: 12px;
-  background-color: var(--cor-principal);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-#contact_button:hover {
-  background-color: #27507c;
-}
-
+/* Estilização do container que envolve a tabela da lista de contatos */
 .div_table {
   background-color: rgb(252, 252, 252);
   padding: 30px 40px;
@@ -73,14 +65,14 @@ h2 {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 600px;
+  margin-top: 40px;
   margin-left: 20px;
-  height: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-
 }
 
+/* Estilização da tabela de contatos */
 #contact_table {
   border-collapse: collapse;
   width: 100%;
@@ -91,7 +83,6 @@ h2 {
 #contact_table td {
   border: 1px solid black;
   padding: 8px;
-  text-align: left;
   text-align: center;
 }
 
@@ -99,7 +90,8 @@ h2 {
   color: var(--cor-titulo);
 }
 
-#delete_button {
+/* Estilização dos botões */
+.button {
   padding: 12px;
   background-color: var(--cor-principal);
   color: white;
@@ -108,10 +100,14 @@ h2 {
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
-  margin-top: 15px;
+  max-width: 80px;
 }
 
-#delete_button:hover {
+.button:hover {
   background-color: #27507c;
 }
 
+/* Estilização específica para o botão de deletar */
+#delete_button {
+  margin-top: 15px;
+}
