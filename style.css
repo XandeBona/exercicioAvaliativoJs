@@ -10,9 +10,12 @@ body {
   background-color: #ececec;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   height: 100vh;
   margin: 0;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
 }
 
 /* Estilização do titulo */
@@ -33,7 +36,7 @@ h2 {
   margin-top: 40px;
 }
 
-/* Estilização do formulário do cadastro de contato */ 
+/* Estilização do formulário do cadastro de contato */
 .div_form {
   display: flex;
   flex-direction: column;
@@ -118,4 +121,15 @@ h2 {
   accent-color: var(--cor-principal);
   width: 18px;
   height: 18px;
+}
+
+/* Estilização de responsividade para dispositivos móveis */
+@media (max-width: 480px) {
+  .div_container,
+  .div_table {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    font-size: 10px;
+  }
 }
