@@ -111,3 +111,11 @@ h2 {
 #delete_button {
   margin-top: 15px;
 }
+
+/* Estilização do checkbox */
+.checkbox_remove {
+  cursor: pointer;
+  accent-color: var(--cor-principal);
+  width: 18px;
+  height: 18px;
+}
